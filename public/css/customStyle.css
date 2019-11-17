@@ -123,7 +123,7 @@
 }
 
 .login .card {
-    width: 30%;
+    width: 80%;
     background-color: #FAFAFA;
     padding: 50px;
     border-radius: 10px;
@@ -278,6 +278,19 @@ table td:last-child {
 
 
 @media screen and (min-width: 800px) {
+
+
+    .login .card {
+        width: 30%;
+        background-color: #FAFAFA;
+        padding: 50px;
+        border-radius: 10px;
+    }
+
+
+
+
+
     .bar {
         display: none;
     }
