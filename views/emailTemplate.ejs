@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>MUVschool</title>
+    <style>
+        img {
+            vertical-align: middle;
+        }
+
+        h1 {
+            font-size: 2em;
+            margin: 0.67em 0;
+        }
+
+        p {
+            margin: 0 0 10px;
+        }
+
+        .container {
+            margin-right: auto;
+            margin-left: auto;
+            padding-left: 15px;
+            padding-right: 15px;
+        }
+
+        .container:before,
+        .container:after {
+            content: " ";
+            display: table;
+        }
+
+        .container:after {
+            clear: both;
+        }
+
+        .text-primary {
+            color: #337ab7;
+        }
+
+        .text-orange {
+            color: #F85A16
+        }
+
+        .btn {
+            margin-right: 4px;
+            margin-bottom: 4px;
+            font-family: "Raleway", Arial, sans-serif;
+            font-size: 16px;
+            font-weight: 400;
+            -webkit-border-radius: 4px;
+            -moz-border-radius: 4px;
+            -ms-border-radius: 4px;
+            border-radius: 4px;
+            -webkit-transition: 0.5s;
+            -o-transition: 0.5s;
+            transition: 0.5s;
+            padding: 8px 30px;
+        }
+
+        .btn-success {
+            background: #5cb85c;
+            color: #fff;
+            border: 2px solid #5cb85c;
+        }
+
+        .btn-primary {
+            background: #F85A16;
+            color: #fff;
+            border: 2px solid #F85A16 !important;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <p class="logo" style="font-size: 2em;"><img src="cid:logo" width="40" height="40" class="float-left"
+                style="margin: 20px 20px 0 0;">MUVschool</p>
+        <p> <b class="text-primary">
+                Ďakujeme <%= user.firstName %>, tvoja prihláška bola zaznamenaná.</b><br><br>
+            Na číslo účtu uvedené nižšie musíš zaslať sumu uvedenú pri informáciách o vybranom kurze inak nebudeš
+            registrovaný<br><br>
+            <b>Číslo účtu:</b> <b class="text-orange">SK54687985235486</b>
+        </p>
+        <div class="container" style="background: rgba(0, 0, 0, .05); padding: 20px;">
+            <div class="container bgr-primary">
+
+                <b class="text-primary">Tvoje informácie:</b><br>
+                <p>
+                    <b>Meno:</b> <%= user.firstName %> <%= user.lastName %> <br>
+                    <b>Email:</b> <%= user.email %> <br>
+                    <b>Telefónne číslo:</b> <%= phoneNum %> <br>
+                    <b>Dátum narodenia:</b> <%= user.dobDay %>.<%= user.dobMonth %>.<%= user.dobYear %> <br>
+                    <b>Adresa:</b> <%= user.address %>, <%= user.city %> <%= PSC %>, <%= user.state %> <br>
+                    <b>Vybratý kurz:</b> <%= user.pickCourse %> <br>
+                    <b>Poznámky:</b> <%= user.inf %> <br>
+                </p>
+                <b class="text-primary">Informácie o zákonnom zástupcovi:</b><br>
+                <p>
+                    <b>Meno:</b> <%= user.parentFirstName %> <%= user.parentLastName %> <br>
+                    <b>Email:</b> <%= user.parentEmail %> <br>
+                    <b>Telefónne číslo:</b> <%= parentPhoneNum %> <br>
+                    <b>Poznámky:</b> <%= user.parentInf %> <br>
+                </p>
+            </div>
+
+        </div>
+        <p class="logo" style="margin-top: 50px;">Team MUVschool. <img src="cid:logo" width="30" height="30">
+        </p>
+    </div>
+</body>
+
+</html>

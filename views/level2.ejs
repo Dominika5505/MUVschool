@@ -1,0 +1,89 @@
+<div class="font-fam">
+    <% include ./partials/adminNav %>
+
+    <div class="container admin-table-container">
+        <h1 class="admin-table-header">Level 2 (13-16 rokov)</h1>
+        <div class="container">
+            <p class="payed">
+                <b>Zaplatili: </b><%= usersPayedCountLevel2 %> / <%= level2.length %>
+            </p>
+        </div>
+        <div class="container">
+            <table class="table admin-table">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Meno</th>
+                        <th scope="col">Priezvisko</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Tel. číslo</th>
+                        <th scope="col">Dátum narodenia</th>
+                        <th scope="col">Bydlisko</th>
+                        <th scope="col">Zaplatil</th>
+                        <th scope="col">Vymazať</th>
+                        <th scope="col"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% level2.forEach(user => { %> <% if(typeof user !== undefined) { %>
+                    <tr class="table-parent">
+                        <th scope="row"><%= level2.indexOf(user) + 1 %></th>
+                        <td><%= user.firstName %></td>
+                        <td><%= user.lastName %></td>
+                        <td><%= user.email %></td>
+                        <td><%= user.phoneNum %></td>
+                        <td><%= user.dob %></td>
+                        <td>
+                            <%= user.address %><br />
+                            <%= user.city %><br />
+                            <%= user.PSC %><br />
+                            <%= user.state %>
+                        </td>
+                        <td>
+                            <form action="/admin/dashboard/<%= user.id %>?_method=PUT" method="post">
+                                <button class="btn btn-<%= user.payed ? 'success' : 'danger' %>"
+                                    type="submit"><%= user.payed ? 'Áno' : 'Nie' %></button>
+                            </form>
+                        </td>
+                        <td>
+                            <form class="delete-form" action="/admin/dashboard/<%= user.id %>?_method=DELETE"
+                                method="post">
+                                <button class="btn btn-danger td-delete" type="submit">X</button>
+                            </form>
+                        </td>
+                        <td class="show-more-td">
+                            <div class="show-more"></div>
+                        </td>
+                    </tr>
+                    <tr class="table-child">
+                        <td colspan="10">
+                            <div>
+                                <% if(user.inf !== '') { %>
+                                <p><b>Inf:</b> <%= user.inf %></p>
+                                <% } %>
+                                <div style="background: rgba(0, 0, 0, .05); padding: 10px;">
+                                    <p><b>Rodič:</b></p>
+                                    <div class="admin-table-parent-inf">
+                                        <p>
+                                            <b>Meno: </b> <%= user.parent[0].parentFirstName %>
+                                            <%= user.parent[0].parentLastName %>
+                                        </p>
+                                        <p><b>Email: </b> <%= user.parent[0].parentEmail %></p>
+                                        <p>
+                                            <b>Tel. číslo: </b> <%= user.parent[0].parentPhoneNum %>
+                                        </p>
+                                        <% if(user.parent[0].parentInf !== '') { %>
+                                        <p><b>Inf:</b> <%= user.parent[0].parentInf %></p>
+                                        <% } %>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    <% } %> <% }) %>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</div>

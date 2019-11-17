@@ -1,0 +1,377 @@
+<% if(typeof user != 'undefined') { %>
+<!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+    Launch demo modal
+</button> -->
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalCenterTitle">Prihláška spracovaná</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <b class="text-primary">Ďakujeme <%= user.firstName %>, za poslanie prihlášky.</b><br>
+                Na tvoj e-mail <b>(<%= user.email %>)</b> a e-mail
+                tvojho zákonného zástupcu boli zaslané ďalšie inštrukcie a <span class="text-orange"><b>číslo účtu,
+                        kde musíš poslať peniaze aby si bol záväzne prihlásený na tento kurz.</b></span>
+                Poponáhľaj sa, pretože <b>kým nezaplatíš, miesto sa počíta ako voľné a niekto ti ho môže obsadiť</b>!
+                <br>
+                <small class="text-primary">- MUVschool</small>
+            </div>
+            <div class="modal-footer">
+                <a href="https://mail.google.com/mail/u/?authuser=<%= user.email %>" target="_blank"
+                    class="btn btn-primary">Otvor
+                    Mail</a>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+<% } %>
+
+<div class="gtco-loader"></div>
+
+<div id="page">
+    <nav class="gtco-nav" role="navigation">
+        <div class="gtco-container">
+            <div class="row">
+                <div class="col-xs-2">
+                    <div id="gtco-logo"><a href="/"></a><img src="/images/LOGO.png"></div>
+                </div>
+                <div class="col-xs-10 text-right menu-1">
+                    <ul>
+                        <li><a href="/">Domov</a></li>
+                        <li><a href="/about">O nás</a></li>
+                        <li class="active" class="has-dropdown">
+                            <a href="/services"> Ponuka </a>
+
+                        </li>
+                        <li class="has-dropdown">
+                            <a href="https://theroots.sk/"> Obchod </a>
+
+                        </li>
+                        <li><a href="/contact">Kontakt</a></li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </nav>
+
+    <header id="gtco-header" class="gtco-cover gtco-cover-sm" role="banner"
+        style="background-image:url(images/img3.jpg);">
+        <div class="overlay"></div>
+        <div class="gtco-container">
+            <div class="row">
+                <div class="col-md-8 col-md-offset-2 text-center">
+                    <div class="display-t">
+                        <div class="display-tc animate-box" data-animate-effect="fadeIn">
+                            <h1> Trénuj s nami </h1>
+                            <h2> Si začiatočník ? Pokročilý ? Alebo niečo medzi ? Si tu správne ! </h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div id="gtco-features">
+
+        <div class="col-md-8 col-md-offset-2 text-center gtco-heading">
+            <h2> Čo je Parkour a Freerun ? </h2>
+            <p>
+
+                Parkour veľa ludí pozná ako skákanie zo strechy na strechu. Málokto však vie, že táto disciplína v sebe
+                nesie filozofiu a isté hodnoty
+                ako sú napríklad súdržnosť, diciplína, pokora alebo rešpektovanie.
+                Nejde len on presúvanie sa z bodu A do bodu B ale je aj o prekonávanie fyzických a mentálnych prekážok.
+                Parkour pozostáva z rôznych pohybov,
+                ktoré su priamo určené na rýchly presun cez prekážky. <br><br>
+
+                Freerun vychádza z parkouru a zameriava sa hlavne na efektnosť pri presune. Táto disciplína naberá na
+                popularite a poznáme
+                ju hlavne ako kombináciu akrobacie, základných parkourových techník a tanca.
+            </p>
+        </div>
+
+        <div class="col-md-8 col-md-offset-2 text-center gtco-heading">
+            <h2> Pravidelné tréningy </h2>
+            <p>
+
+                info. <br><br>
+
+                <button class="btn btn-primary register-button">Prihlásiť sa na kurz</button>
+            </p>
+        </div>
+
+        <!-- <div class="col-md-8 col-md-offset-2 text-center gtco-heading">
+                <h2> Tréningy pre dospelých </h2>
+                <p> 
+      
+          info. <br><br>
+          
+          Tlačidlo, ktorým sa človek preklikne na podstránku, na ktorej bude prihláška + krátky text.
+              </p>    -->
+    </div>
+
+
+
+    <!--<div class="gtco-container">
+        <div class="row">
+            <div class="col-md-4 col-sm-4 animate-box" data-animate-effect="fadeIn">
+                <div class="feature-center">
+                    <span class="icon">
+                        <i class="icon-eye"></i>
+                    </span>
+                    <h3>Retina Ready</h3>
+                    <p>Dignissimos asperiores vitae velit veniam totam fuga molestias accusamus alias autem provident. Odit ab aliquam dolor eius.</p>
+                    <p><a href="#" class="btn btn-primary btn-outline">Learn More</a></p>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-4 animate-box" data-animate-effect="fadeIn">
+                <div class="feature-center">
+                    <span class="icon">
+                        <i class="icon-command"></i>
+                    </span>
+                    <h3>Fully Responsive</h3>
+                    <p>Dignissimos asperiores vitae velit veniam totam fuga molestias accusamus alias autem provident. Odit ab aliquam dolor eius.</p>
+                    <p><a href="#" class="btn btn-primary btn-outline">Learn More</a></p>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-4 animate-box" data-animate-effect="fadeIn">
+                <div class="feature-center">
+                    <span class="icon">
+                        <i class="icon-power"></i>
+                    </span>
+                    <h3>Web Starter</h3>
+                    <p>Dignissimos asperiores vitae velit veniam totam fuga molestias accusamus alias autem provident. Odit ab aliquam dolor eius.</p>
+                    <p><a href="#" class="btn btn-primary btn-outline">Learn More</a></p>
+                </div>
+            </div>
+
+            <div class="col-md-4 col-sm-4 animate-box" data-animate-effect="fadeIn">
+                <div class="feature-center">
+                    <span class="icon">
+                        <i class="icon-eye"></i>
+                    </span>
+                    <h3>Retina Ready</h3>
+                    <p>Dignissimos asperiores vitae velit veniam totam fuga molestias accusamus alias autem provident. Odit ab aliquam dolor eius.</p>
+                    <p><a href="#" class="btn btn-primary btn-outline">Learn More</a></p>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-4 animate-box" data-animate-effect="fadeIn">
+                <div class="feature-center">
+                    <span class="icon">
+                        <i class="icon-command"></i>
+                    </span>
+                    <h3>Fully Responsive</h3>
+                    <p>Dignissimos asperiores vitae velit veniam totam fuga molestias accusamus alias autem provident. Odit ab aliquam dolor eius.</p>
+                    <p><a href="#" class="btn btn-primary btn-outline">Learn More</a></p>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-4 animate-box" data-animate-effect="fadeIn">
+                <div class="feature-center">
+                    <span class="icon">
+                        <i class="icon-power"></i>
+                    </span>
+                    <h3>Web Starter</h3>
+                    <p>Dignissimos asperiores vitae velit veniam totam fuga molestias accusamus alias autem provident. Odit ab aliquam dolor eius.</p>
+                    <p><a href="#" class="btn btn-primary btn-outline">Learn More</a></p>
+                </div>
+            </div>
+
+        </div>
+
+
+    </div> -->
+</div>
+
+
+<div class="gtco-cover gtco-cover-sm" style="background-image:url(images/img4.jpg);">
+    <div class="overlay"></div>
+    <div class="gtco-container">
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2 text-center">
+                <div class="display-t">
+                    <div class="display-tc animate-box" data-animate-effect="fadeIn">
+                        <h1> U nás si vítaný </h1>
+                        <h2> Pridaj sa k nám. </h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="gtco-features-2">
+    <div class="gtco-container">
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2 text-center gtco-heading">
+                <h2> Workshopy </h2>
+                <p> Radi vás rozhýbeme aj mimo našich tréningov. </p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="feature-left animate-box" data-animate-effect="fadeInLeft">
+                    <span class="icon">
+                        <i class="icon-check"></i>
+                    </span>
+                    <div class="feature-copy">
+                        <h3> V škole </h3>
+                        <p> Sedíš v škole ? Žiadny problém. Prídeme za tebou a rozhýbeme všetkých spolužiakov, triedy aj
+                            učiteľov. </p>
+                    </div>
+                </div>
+
+                <div class="feature-left animate-box" data-animate-effect="fadeInLeft">
+                    <span class="icon">
+                        <i class="icon-check"></i>
+                    </span>
+                    <div class="feature-copy">
+                        <h3> V práci </h3>
+                        <p> Sedíš v praci ? Sed lepšie a zdravšie. Naučíme ťa ako si užívať pohyb a ako tráviť dlhé
+                            hodiny v práci. Naše pohybové vzorce využiješ v akomkoľvek zamestnaní. </p>
+                    </div>
+                </div>
+
+                <div class="feature-left animate-box" data-animate-effect="fadeInLeft">
+                    <span class="icon">
+                        <i class="icon-check"></i>
+                    </span>
+                    <div class="feature-copy">
+                        <h3> Súkromné aj verejné akcie </h3>
+                        <p> Organizuje vaša firma alebo spoločnosť súkromnú akciu alebo sa vo vašom meste chystá verejná
+                            akcia kde by si sa chcel s nami rozhýbať ? <br> Viete o blížiacej sa akcií ? Dajte nám
+                            vedieť. </p>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="col-md-6">
+                <div class="gtco-video gtco-bg" style="background-image: url(images/img_1.jpg); ">
+                    <a href="https://vimeo.com/channels/staffpicks/93951774" class="popup-vimeo"><i
+                            class="icon-video"></i></a>
+                    <div class="overlay"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div id="gtco-subscribe">
+    <div class="gtco-container">
+        <div class="row animate-box">
+            <div class="col-md-8 col-md-offset-2 text-center gtco-heading">
+                <h2>Prihlás sa na kurz</h2>
+                <p>Be the first to know about the new templates.</p>
+            </div>
+        </div>
+        <%# include ./partials/messages %>
+        <% include ./partials/registerForm %>
+
+    </div>
+</div>
+
+<footer id="gtco-footer" role="contentinfo">
+    <div class="gtco-container">
+        <div class="row row-pb-md">
+            <div class="col-md-2 col-sm-4 col-xs-6 ">
+                <ul class="gtco-footer-links">
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Help</a></li>
+                    <li><a href="#">Contact</a></li>
+                    <li><a href="#">Terms</a></li>
+                    <li><a href="#">Meetups</a></li>
+                </ul>
+            </div>
+            <div class="col-md-2 col-sm-4 col-xs-6">
+                <ul class="gtco-footer-links">
+                    <li><a href="#">Creative Design</a></li>
+                    <li><a href="#">Branding</a></li>
+                    <li><a href="#">Illustration</a></li>
+                    <li><a href="#">Subscribe</a></li>
+                    <li><a href="#">Monthly Event</a></li>
+                </ul>
+            </div>
+
+            <div class="clearfix visible-xs-block"></div>
+
+            <div class="col-md-2 col-sm-4 col-xs-6">
+                <ul class="gtco-footer-links">
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Help</a></li>
+                    <li><a href="#">Contact</a></li>
+                    <li><a href="#">Terms</a></li>
+                    <li><a href="#">Meetups</a></li>
+                </ul>
+            </div>
+
+            <div class="clearfix visible-sm-block"></div>
+
+            <div class="col-md-2 col-sm-4 col-xs-6">
+                <ul class="gtco-footer-links">
+                    <li><a href="#">Shop</a></li>
+                    <li><a href="#">Privacy</a></li>
+                    <li><a href="#">Testimonials</a></li>
+                    <li><a href="#">Handbook</a></li>
+                    <li><a href="#">Held Desk</a></li>
+                </ul>
+            </div>
+
+            <div class="clearfix visible-xs-block"></div>
+
+            <div class="col-md-2 col-sm-4 col-xs-6">
+                <ul class="gtco-footer-links">
+                    <li><a href="#">Find Designers</a></li>
+                    <li><a href="#">Find Deelopers</a></li>
+                    <li><a href="#">Teams</a></li>
+                    <li><a href="#">Advertise</a></li>
+                    <li><a href="#">API</a></li>
+                </ul>
+            </div>
+
+            <div class="col-md-2 col-sm-4 col-xs-6">
+                <ul class="gtco-footer-links">
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Help</a></li>
+                    <li><a href="#">Contact</a></li>
+                    <li><a href="#">Terms</a></li>
+                    <li><a href="#">Meetups</a></li>
+                </ul>
+            </div>
+
+        </div>
+
+        <div class="row copyright">
+            <div class="col-md-12">
+                <p class="pull-left">
+                    <small class="block">&copy; 2016 Free HTML5. All Rights Reserved.</small>
+                    <small class="block">Designed by <a href="http://FreeHTML5.co/" target="_blank">FreeHTML5.co</a>
+                        Demo Images: <a href="http://unsplash.co/" target="_blank">Unsplash</a></small>
+                </p>
+                <p class="pull-right">
+                    <ul class="gtco-social-icons pull-right">
+                        <li><a href="https://www.instagram.com/muvschool/"><i class="icon-instagram"></i></a></li>
+                        <li><a href="https://www.facebook.com/muvschool/"><i class="icon-facebook"></i></a></li>
+                        <li><a href="https://www.youtube.com/channel/UCKT4DNSpYiBlMYC7WEw6ktQ"><i
+                                    class="icon-youtube"></i></a></li>
+
+                    </ul>
+                </p>
+            </div>
+        </div>
+
+    </div>
+</footer>
+</div>
+
+<div class="gototop js-top">
+    <a href="#" class="js-gotop"><i class="icon-arrow-up"></i></a>
+</div>

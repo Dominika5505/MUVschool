@@ -1,0 +1,344 @@
+.font-fam {
+    font-family: 'Lato', sans-serif;
+}
+
+.text-orange {
+    color: #F85A16
+}
+
+.admin-table-container {
+    margin-top: 100px;
+}
+
+.admin-table-header {
+    font-size: 2em;
+    margin: 0 0 30px 10px;
+    background: rgba(0, 0, 0, .03);
+    padding: 20px;
+    color: rgba(0, 0, 0, .2);
+}
+
+.payed b {
+    color: #F85A16;
+}
+
+.admin-table-parent-inf {
+    padding-left: 20px;
+}
+
+.table-parent:not(table td:last-child) {
+    cursor: pointer;
+}
+
+.table-child {
+    display: none;
+}
+
+.show-hide {
+    display: table-row;
+}
+
+.admin-table {
+    vertical-align: middle !important;
+    margin: 0 auto;
+}
+
+.admin-table td,
+.admin-table th {
+    vertical-align: middle !important;
+    text-align: center;
+}
+
+.admin-table tr {
+    transition: background-color .15s ease;
+}
+
+.admin-table tr:hover {
+    background-color: #FAFAFA;
+}
+
+.show-more-td {
+    width: 50px;
+    padding: 0 !important;
+    height: 100%;
+    cursor: pointer;
+}
+
+.show-more {
+    position: relative;
+    height: 20px;
+    width: 30px;
+    transition: transform 0.2s ease .2s;
+}
+
+.show-more::before,
+.show-more::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 0;
+    width: 2px;
+    background: rgba(0, 0, 0, .1);
+    transform-origin: bottom;
+    transition: transform 0.2s ease;
+}
+
+.show-more::before {
+    transform: rotateZ(-30deg);
+}
+
+.show-more::after {
+    transform: rotateZ(30deg);
+}
+
+.show-more-td.show-hide-animate .show-more::before,
+.show-more-td.show-hide-animate .show-more::after {
+    transform: rotateZ(0);
+}
+
+.show-more-td.show-hide-animate .show-more {
+    transform: rotateZ(90deg);
+
+}
+
+.td-delete {
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.delete-form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.login {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.login .card {
+    width: 30%;
+    background-color: #FAFAFA;
+    padding: 50px;
+    border-radius: 10px;
+}
+
+/* 
+table td:last-child {
+  background: blue; */
+/* } */
+
+/* @keyframes show-more-button {
+    0% {
+        transform: rotateZ(0);
+    }
+} */
+
+.fade {
+    opacity: 1;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ADMIN NAVBAR  ------------------------------- */
+
+.admin-header {
+    background: #F85A16;
+    text-align: center;
+    width: 100%;
+    z-index: 999;
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: auto 1fr;
+    grid-template-columns: auto 1fr;
+    -ms-flex-pack: distribute;
+    justify-content: space-around;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+
+.logo {
+    padding: 10px 0;
+    margin: 0;
+}
+
+.admin-nav {
+    position: relative;
+    text-align: left;
+    background: var(--background);
+    width: 100%;
+    display: none;
+    transform-origin: top;
+    -webkit-transition: -webkit-transform 0.4s ease-in-out;
+    transition: -webkit-transform 0.4s ease-in-out;
+    transition: transform 0.4s ease-in-out;
+    transition: transform 0.4s ease-in-out, -webkit-transform 0.4s ease-in-out;
+    grid-column: 1 / -1;
+}
+
+.admin-nav ul {
+    list-style: none;
+}
+
+.admin-nav ul li {
+    margin: 0 0 1em 1em;
+}
+
+.admin-nav ul li .admin-a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    padding: 10px 0;
+    -webkit-transition: opacity 0.15s ease-in-out;
+    transition: opacity 0.15s ease-in-out, color .2s ease;
+}
+
+.admin-nav:hover ul li .admin-a {
+    color: rgba(255, 255, 255, .3);
+}
+
+.admin-nav ul li .admin-a:hover {
+    color: #fff;
+}
+
+.nav-toggle {
+    display: none;
+}
+
+.admin-nav.toggle {
+    display: block;
+}
+
+.admin-a.toggle {
+    display: block;
+    -webkit-transition: opacity 0.25s ease-in-out 0.25s;
+    transition: opacity 0.25s ease-in-out 0.25s;
+}
+
+.bar {
+    display: block;
+    margin: 0 0 0 10px;
+    cursor: pointer;
+}
+
+.bar-line {
+    background: white;
+    height: 3px;
+    width: 2em;
+    border-radius: 1px;
+    margin: 5px;
+    -webkit-transition: opacity 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.5), -webkit-transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.5);
+    transition: opacity 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.5), -webkit-transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.5);
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.5), opacity 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.5);
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.5), opacity 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.5), -webkit-transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.5);
+}
+
+.line-2.toggle {
+    opacity: 0;
+}
+
+.line-1.toggle {
+    -webkit-transform: translate(0, 7.8px) rotate(-45deg);
+    transform: translate(0, 7.8px) rotate(-45deg);
+}
+
+.line-3.toggle {
+    -webkit-transform: translate(0, -7.8px) rotate(45deg);
+    transform: translate(0, -7.8px) rotate(45deg);
+}
+
+
+
+@media screen and (min-width: 800px) {
+    .bar {
+        display: none;
+    }
+
+    .nav-toggle-label {
+        display: none;
+    }
+
+    .admin-header {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-pack: distribute;
+        justify-content: space-around;
+    }
+
+    .admin-nav {
+        all: unset;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-pack: end;
+        -ms-flex-pack: end;
+        justify-content: flex-end;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+    }
+
+    .admin-nav ul {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-pack: end;
+        -ms-flex-pack: end;
+        justify-content: flex-end;
+        margin: 0;
+    }
+
+    .admin-nav ul li {
+        margin: 0 0 0 1em;
+    }
+
+    .admin-nav ul li .admin-a {
+        opacity: 1 !important;
+        position: relative;
+        font-size: 1.2rem;
+        padding: 0;
+    }
+
+    .admin-nav:hover ul li .admin-a {
+        color: rgba(255, 255, 255, .3);
+    }
+
+    .admin-a {
+        position: relative;
+    }
+
+    .admin-nav ul li .admin-a:hover {
+        color: #fff;
+    }
+}
+
+/*# sourceMappingURL=style.css.map */

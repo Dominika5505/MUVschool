@@ -1,0 +1,29 @@
+<div class="font-fam">
+    <header class="admin-header">
+        <div class="bar">
+            <div class="bar-line line-1"></div>
+            <div class="bar-line line-2"></div>
+            <div class="bar-line line-3"></div>
+        </div>
+
+        <h1 class="logo"><a href="/"><img src="/images/LOGO.png" width="40" height="40"></a></h1>
+        <!-- <input type="checkbox" class="nav-toggle" name="nav-toggle" id="nav-toggle"> -->
+
+        <nav class="admin-nav">
+            <ul>
+                <li><a href="/" class="admin-a">Domov - Web</a></li>
+                <li><a href="/admin/dashboard/"
+                        class="admin-a"><%- title == 'Admin/Level 1' ? '<b>Level 1</b>' : 'Level 1' %></a>
+                </li>
+                <li><a href="/admin/dashboard/level2"
+                        class="admin-a"><%- title == 'Admin/Level 2' ? '<b>Level 2</b>' : 'Level 2' %></a></li>
+                <li><a href="/admin/logout" class="admin-a">Odhlásiť sa</a></li>
+            </ul>
+        </nav>
+
+        <!-- <label for="nav-toggle" class="nav-toggle-label">
+            <span></span>
+        </label> -->
+    </header>
+
+</div>
