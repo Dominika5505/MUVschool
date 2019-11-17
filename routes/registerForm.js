@@ -9,8 +9,12 @@ const nodemailer = require("nodemailer");
 let transporter = nodemailer.createTransport({
     service: "gmail",
     auth: {
+        type: 'oauth2',
         user: process.env.EMAIL_USER,
-        pass: process.env.EMAIL_PASS
+        // pass: process.env.EMAIL_PASS
+        clientId: '659853386415-gqglol5od0l1j9o7k4fdepor9ce14c89.apps.googleusercontent.com',
+        clientSecret: 'ETnxkaDa_HqDlGYUIZcxBX_a',
+        refreshToken: '1//04qNStbFqsTGCCgYIARAAGAQSNwF-L9Irv3qoT8Y05lPvSLFaq-4WX5xbQAVTeTVStwnm3Z8pvCL4jwVXjirFAGJWoWsabuuBxIU'
     }
 });
 
