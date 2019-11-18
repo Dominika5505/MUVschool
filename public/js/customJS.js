@@ -8,6 +8,19 @@ tableParent.forEach(node => {
     });
 });
 
+
+// Auto scroll on form
+
+
+$(document).ready(function () {
+    // Handler for .ready() called.
+    if ($("#gtco-subscribe").hasClass("flash-message")) {
+        $('html, body').animate({
+            scrollTop: $('#gtco-subscribe').offset().top
+        }, 1);
+    }
+});
+
 $('#myModal').modal('show');
 
 const lines = document.querySelectorAll(".bar-line");

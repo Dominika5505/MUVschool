@@ -265,7 +265,7 @@
 </div>
 
 
-<div id="gtco-subscribe">
+<div id="gtco-subscribe" class="<%= typeof errors != 'undefined' ? 'flash-message' : '' %>">
     <div class="gtco-container">
         <div class="row animate-box">
             <div class="col-md-8 col-md-offset-2 text-center gtco-heading">
@@ -273,7 +273,7 @@
                 <p>Be the first to know about the new templates.</p>
             </div>
         </div>
-        <%# include ./partials/messages %>
+        <% include ./partials/messages %>
         <% include ./partials/registerForm %>
 
     </div>

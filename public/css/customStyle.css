@@ -18,6 +18,15 @@
     color: rgba(0, 0, 0, .2);
 }
 
+
+.admin-table {
+    transform: scale(0.5) translate(-50%, -50%);
+
+    /* position: absolute;
+    top: 0;
+    left: 0; */
+}
+
 .payed b {
     color: #F85A16;
 }
@@ -285,6 +294,10 @@ table td:last-child {
         background-color: #FAFAFA;
         padding: 50px;
         border-radius: 10px;
+    }
+
+    .admin-table {
+        transform: scale(1) translate(0, 0);
     }
 
 
