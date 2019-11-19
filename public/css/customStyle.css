@@ -10,6 +10,10 @@
     margin-top: 100px;
 }
 
+.admin-table-container .container:nth-of-type(2) {
+    overflow-x: auto;
+}
+
 .admin-table-header {
     font-size: 2em;
     margin: 0 0 30px 10px;
@@ -41,7 +45,7 @@
 .admin-table {
     vertical-align: middle !important;
     margin: 0 auto;
-    transform: scale(0.3) translate(-50%, -50%);
+    /* transform: scale(0.3) translate(-110%, -115%); */
 }
 
 .admin-table td,
@@ -128,18 +132,9 @@
     background-color: #FAFAFA;
     padding: 50px;
     border-radius: 10px;
+    padding: 0 20px 0 5px;
+    background: #fff;
 }
-
-/* 
-table td:last-child {
-  background: blue; */
-/* } */
-
-/* @keyframes show-more-button {
-    0% {
-        transform: rotateZ(0);
-    }
-} */
 
 .fade {
     opacity: 1;
