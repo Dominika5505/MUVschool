@@ -52,6 +52,8 @@
 .admin-table th {
     vertical-align: middle !important;
     text-align: center;
+    padding: 2px 8px !important;
+    line-height: 1.2 !important;
 }
 
 .admin-table tr {

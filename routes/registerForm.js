@@ -38,11 +38,7 @@ router.post("/", async (req, res) => {
     // ----------------
     const errorMsg = error.details[0].message;
     console.log(errorMsg.slice(-40));
-    if (errorMsg.slice(-26) == 'is not allowed to be empty' || req.body.pickCourse !== "Level 1" || req.body.pickCourse !== "Level 1") {
-        errors.push({
-            msg: 'Všetky polia označené * musia byť vyplnené alebo zaškrtnuté.'
-        })
-    }
+
     if (errorMsg == '"dobDay" must be less than or equal to "1970-01-01T00:00:00.031Z"') {
         errors.push({
             msg: 'Deň narodenia musí obsahovať číslo 1-31.'
@@ -73,12 +69,20 @@ router.post("/", async (req, res) => {
             msg: 'PSČ nie je správna.'
         })
     }
-    if (errorMsg.slice(-72) == 'match the required pattern: /^(?:[A-zÀ-ú]+)(?:[A-Za-z\\u0100-\\u017F ]*)$/') {
+
+    if (errorMsg.slice(-79) == 'match the required pattern: /^(?:[A-zÀ-ú]+)(?:[A-Za-z\\u0100-\\u017F áéíýóúô]*)$/') {
         errors.push({
             msg: 'Mesto nie je správne.'
         })
     }
-    if (errorMsg.slice(-41) == 'length must be at least 2 characters long' || errorMsg.slice(-40) == 'less than or equal to 50 characters long' || errorMsg.slice(-71) == 'match the required pattern: /^(?:[A-zÀ-ú]+)(?:[A-Za-z\\u0100-\\u017F]*)$/') {
+
+    if (errorMsg.slice(-92) == 'match the required pattern: /^(?:[A-zÀ-ú]+)(?:[A-Za-z0-9\\u0100-\\u017F .,:?!áéíýóúô]*)$/') {
+        errors.push({
+            msg: 'Informácie musia obsahobať len čísla písmená . , : ? a !.'
+        })
+    }
+
+    if (errorMsg.slice(-41) == 'length must be at least 2 characters long' || errorMsg.slice(-40) == 'less than or equal to 50 characters long' || errorMsg.slice(-78) == 'match the required pattern: /^(?:[A-zÀ-ú]+)(?:[A-Za-z\\u0100-\\u017Fáéíýóúô]*)$/') {
         errors.push({
             msg: 'Meno musí obsahovať validné znaky v počte od 2 do 50.'
         })
@@ -88,6 +92,12 @@ router.post("/", async (req, res) => {
         errors.push({
             msg: error.details[0].message
         });
+    }
+
+    if (errorMsg.slice(-26) == 'is not allowed to be empty' || req.body.pickCourse !== "Level 1" || req.body.pickCourse !== "Level 1" || errorMsg == '"dobDay" must be a valid date') {
+        errors.push({
+            msg: 'Všetky polia označené * musia byť vyplnené alebo zaškrtnuté.'
+        })
     }
 
 
