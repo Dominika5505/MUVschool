@@ -290,7 +290,8 @@ router.post("/", async (req, res) => {
                 user: req.body,
                 PSC: convertPSC(req.body.PSC),
                 phoneNum: convertPhoneNum(req.body.phoneNum),
-                parentPhoneNum: convertPhoneNum(req.body.parentPhoneNum)
+                parentPhoneNum: convertPhoneNum(req.body.parentPhoneNum),
+                dob: convertDOB(req.body.dob)
             }
         );
 
