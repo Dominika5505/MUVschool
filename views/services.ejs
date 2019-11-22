@@ -1,3 +1,66 @@
+<div id="gtco-level2" class="<%= typeof level2 != 'undefined' ? 'flash-message' : '' %>">
+    <div class="modal fade" id="modalLevel2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-form" role="document">
+            <div class="modal-content">
+                <div class="modal-header text-center">
+                    <h4 class="modal-title w-100 font-weight-bold text-light"><b>Registračný formulár</b> <br> Level 2
+                        (7-12 rokov) </h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body mx-3">
+                    <% include ./partials/messages %>
+                    <div class="form">
+                        <!-- Level 2 form ------------------------------------------------------------------------- -->
+                        <div class="register-form mx-auto text-left" id="registerForm">
+                            <form method="POST" action="/services">
+                                <input type="hidden" name="pickCourse" value="Level 2">
+                                <% include ./partials/registerForm %>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="gtco-level1" class="<%= typeof level1 != 'undefined' ? 'flash-message' : '' %>">
+    <div class="modal fade" id="modalLevel1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-form" role="document">
+            <div class="modal-content">
+                <div class="modal-header text-center">
+                    <h4 class="modal-title w-100 font-weight-bold text-orange"><b>Registračný formulár</b> <br>Level 1
+                        (12-16 rokov)</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body mx-3">
+                    <% include ./partials/messages %>
+                    <div class="form">
+                        <!-- Level 1 form ------------------------------------------------------------------------- -->
+                        <div class="register-form mx-auto text-left" id="registerForm">
+                            <form method="POST" action="/services">
+                                <input type="hidden" name="pickCourse" value="Level 1">
+                                <% include ./partials/registerForm %>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
 <% if(typeof user != 'undefined') { %>
 <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
     Launch demo modal
@@ -98,17 +161,172 @@
             </p>
         </div>
 
-        <div class="col-md-8 col-md-offset-2 text-center gtco-heading">
+        <div class="col-md-12 text-center gtco-heading">
             <h2> Pravidelné tréningy </h2>
-            <p>
+            <div class="margin-top-bottom">
+                <div class="course-container">
+                    <div class="course-img-container">
+                        <div class="course-img-overlay">
+                            <div class="course-info1 course-info-container display">
+                                <h2>Level 1</h2>
+                                <h4>Deti od 7 do 12 rokov</h4>
+                                <p>Klikni pre <span class="text-primary"><b>Info o kurze</b></span></p>
+                                <div class="row">
+                                    <div class="text-left pr-5">
+                                        <ul>
+                                            <li>Niečo</li>
+                                            <li>Niečo</li>
+                                            <li>Niečo</li>
+                                            <li>Niečo</li>
+                                        </ul>
+                                    </div>
+                                    <div class="text-left">
+                                        <ul>
+                                            <li>Niečo</li>
+                                            <li>Niečo</li>
+                                            <li>Niečo</li>
+                                            <li>Niečo</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="arrow-sign">
+                                    <a href="" class="sign-in mb-4" data-toggle="modal"
+                                        data-target="#modalLevel1">Prihlásiť
+                                        sa</a>
+                                    <div class="arrow-down-container">
+                                        <div class="arrow-down"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="course-info2 course-info-container">
+                                <div class="course-info">
+                                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consequatur velit culpa
+                                        suscipit aperiam accusantium deleniti est corrupti dolorum, voluptas sit soluta,
+                                        perferendis aliquam voluptate voluptatibus veniam ad ea! Obcaecati,
+                                        voluptates.Doloribus vero dolores tenetur adipisci libero soluta. Dolor soluta
+                                        minus
+                                        veniam, ratione consequatur rem! Harum ratione vitae, quia ut iusto laboriosam
+                                        optio
+                                        perferendis aliquam voluptate voluptatibus veniam ad ea! Obcaecati,
+                                        voluptates.Doloribus vero dolores tenetur adipisci libero soluta. Dolor soluta
+                                        minus
+                                        veniam, ratione consequatur rem! Harum ratione vitae, quia ut iusto laboriosam
+                                        optio
+                                        perferendis aliquam voluptate voluptatibus veniam ad ea! Obcaecati,
+                                        voluptates.Doloribus vero dolores tenetur adipisci libero soluta. Dolor soluta
+                                        minus
+                                        veniam, ratione consequatur rem! Harum ratione vitae, quia ut iusto laboriosam
+                                        optio
+                                        perferendis aliquam voluptate voluptatibus veniam ad ea! Obcaecati,
+                                        voluptates.Doloribus vero dolores tenetur adipisci libero soluta. Dolor soluta
+                                        minus
+                                        veniam, ratione consequatur rem! Harum ratione vitae, quia ut iusto laboriosam
+                                        optio
+                                        commodi suscipit itaque quaerat. Praesentium facilis fugiat doloremque?</p>
+                                </div>
+                                <div class="arrow-sign">
+                                    <a href="" class="sign-in mb-4" data-toggle="modal"
+                                        data-target="#modalLevel1">Prihlásiť
+                                        sa</a>
+                                    <div class="arrow-down-container">
+                                        <div class="arrow-down"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="course-container">
+                    <div class="course-img-container level2-course">
+                        <div class="course-img-overlay">
+                            <div class="course-info1 course-info-container display">
+                                <h2>Level 2</h2>
+                                <h4>Deti od 13 do 16 rokov</h4>
+                                <p>Klikni pre <span class="text-primary"><b>Info o kurze</b></span></p>
+                                <div class="row">
+                                    <div class="text-left pr-5">
+                                        <ul>
+                                            <li>Niečo</li>
+                                            <li>Niečo</li>
+                                            <li>Niečo</li>
+                                            <li>Niečo</li>
+                                        </ul>
+                                    </div>
+                                    <div class="text-left">
+                                        <ul>
+                                            <li>Niečo</li>
+                                            <li>Niečo</li>
+                                            <li>Niečo</li>
+                                            <li>Niečo</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="arrow-sign">
+                                    <a href="" class="sign-in mb-4" data-toggle="modal"
+                                        data-target="#modalLevel2">Prihlásiť
+                                        sa</a>
+                                    <div class="arrow-down-container">
+                                        <div class="arrow-down"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="course-info2 course-info-container">
+                                <div class="course-info">
+                                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consequatur velit culpa
+                                        suscipit aperiam accusantium deleniti est corrupti dolorum, voluptas sit soluta,
+                                        perferendis aliquam voluptate voluptatibus veniam ad ea! Obcaecati,
+                                        voluptates.Doloribus vero dolores tenetur adipisci libero soluta. Dolor soluta
+                                        minus
+                                        veniam, ratione consequatur rem! Harum ratione vitae, quia ut iusto laboriosam
+                                        optio
+                                        perferendis aliquam voluptate voluptatibus veniam ad ea! Obcaecati,
+                                        voluptates.Doloribus vero dolores tenetur adipisci libero soluta. Dolor soluta
+                                        minus
+                                        veniam, ratione consequatur rem! Harum ratione vitae, quia ut iusto laboriosam
+                                        optio
+                                        perferendis aliquam voluptate voluptatibus veniam ad ea! Obcaecati,
+                                        voluptates.Doloribus vero dolores tenetur adipisci libero soluta. Dolor soluta
+                                        minus
+                                        veniam, ratione consequatur rem! Harum ratione vitae, quia ut iusto laboriosam
+                                        optio
+                                        perferendis aliquam voluptate voluptatibus veniam ad ea! Obcaecati,
+                                        voluptates.Doloribus vero dolores tenetur adipisci libero soluta. Dolor soluta
+                                        minus
+                                        veniam, ratione consequatur rem! Harum ratione vitae, quia ut iusto laboriosam
+                                        optio
+                                        commodi suscipit itaque quaerat. Praesentium facilis fugiat doloremque?</p>
+                                </div>
+                                <div class="arrow-sign">
+                                    <a href="" class="sign-in mb-4" data-toggle="modal"
+                                        data-target="#modalLevel2">Prihlásiť
+                                        sa</a>
+                                    <div class="arrow-down-container">
+                                        <div class="arrow-down"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
-                info. <br><br>
+
+
+
+
+                </div>
+            </div>
+            <p>info. <br><br>
 
                 <button class="btn btn-primary register-button">Prihlásiť sa na kurz</button>
             </p>
         </div>
 
-        <!-- <div class="col-md-8 col-md-offset-2 text-center gtco-heading">
+    </div>
+
+
+
+
+
+    <!-- <div class="col-md-8 col-md-offset-2 text-center gtco-heading">
                 <h2> Tréningy pre dospelých </h2>
                 <p> 
       
@@ -116,11 +334,11 @@
           
           Tlačidlo, ktorým sa človek preklikne na podstránku, na ktorej bude prihláška + krátky text.
               </p>    -->
-    </div>
+</div>
 
 
 
-    <!--<div class="gtco-container">
+<!--<div class="gtco-container">
         <div class="row">
             <div class="col-md-4 col-sm-4 animate-box" data-animate-effect="fadeIn">
                 <div class="feature-center">
@@ -223,7 +441,8 @@
                     </span>
                     <div class="feature-copy">
                         <h3> V škole </h3>
-                        <p> Sedíš v škole ? Žiadny problém. Prídeme za tebou a rozhýbeme všetkých spolužiakov, triedy aj
+                        <p> Sedíš v škole ? Žiadny problém. Prídeme za tebou a rozhýbeme všetkých spolužiakov,
+                            triedy aj
                             učiteľov. </p>
                     </div>
                 </div>
@@ -234,7 +453,8 @@
                     </span>
                     <div class="feature-copy">
                         <h3> V práci </h3>
-                        <p> Sedíš v praci ? Sed lepšie a zdravšie. Naučíme ťa ako si užívať pohyb a ako tráviť dlhé
+                        <p> Sedíš v praci ? Sed lepšie a zdravšie. Naučíme ťa ako si užívať pohyb a ako tráviť
+                            dlhé
                             hodiny v práci. Naše pohybové vzorce využiješ v akomkoľvek zamestnaní. </p>
                     </div>
                 </div>
@@ -245,8 +465,10 @@
                     </span>
                     <div class="feature-copy">
                         <h3> Súkromné aj verejné akcie </h3>
-                        <p> Organizuje vaša firma alebo spoločnosť súkromnú akciu alebo sa vo vašom meste chystá verejná
-                            akcia kde by si sa chcel s nami rozhýbať ? <br> Viete o blížiacej sa akcií ? Dajte nám
+                        <p> Organizuje vaša firma alebo spoločnosť súkromnú akciu alebo sa vo vašom meste chystá
+                            verejná
+                            akcia kde by si sa chcel s nami rozhýbať ? <br> Viete o blížiacej sa akcií ? Dajte
+                            nám
                             vedieť. </p>
                     </div>
                 </div>
@@ -265,7 +487,7 @@
 </div>
 
 
-<div id="gtco-subscribe" class="<%= typeof errors != 'undefined' ? 'flash-message' : '' %>">
+<div id="gtco-subscribe">
     <div class="gtco-container">
         <div class="row animate-box">
             <div class="col-md-8 col-md-offset-2 text-center gtco-heading">
@@ -273,11 +495,8 @@
                 <p>Be the first to know about the new templates.</p>
             </div>
         </div>
-        <% include ./partials/messages %>
-        <% include ./partials/registerForm %>
-
     </div>
-</div>
+</div> -->
 
 <footer id="gtco-footer" role="contentinfo">
     <div class="gtco-container">
@@ -358,7 +577,8 @@
                 </p>
                 <p class="pull-right">
                     <ul class="gtco-social-icons pull-right">
-                        <li><a href="https://www.instagram.com/muvschool/"><i class="icon-instagram"></i></a></li>
+                        <li><a href="https://www.instagram.com/muvschool/"><i class="icon-instagram"></i></a>
+                        </li>
                         <li><a href="https://www.facebook.com/muvschool/"><i class="icon-facebook"></i></a></li>
                         <li><a href="https://www.youtube.com/channel/UCKT4DNSpYiBlMYC7WEw6ktQ"><i
                                     class="icon-youtube"></i></a></li>

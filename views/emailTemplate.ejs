@@ -72,18 +72,28 @@
             color: #fff;
             border: 2px solid #F85A16 !important;
         }
+
+        .flex-header {
+            display: flex;
+            align-items: center;
+        }
     </style>
 </head>
 
 <body>
-    <div class="container">
-        <p class="logo" style="font-size: 2em;"><img src="cid:logo" width="40" height="40" class="float-left"
-                style="margin: 20px 20px 0 0;">MUVschool</p>
+    <div class="container" style="width: 80%;">
+        <div class="flex-header">
+            <img src="cid:logo" width="40" height="40" style="margin: 20px 20px 0 0;">
+            <p class="logo" style="font-size: 2em;">MUVschool</p>
+        </div>
         <p> <b class="text-primary">
                 Ďakujeme <%= user.firstName %>, tvoja prihláška bola zaznamenaná.</b><br><br>
-            Na číslo účtu uvedené nižšie musíš zaslať sumu uvedenú pri informáciách o vybranom kurze inak nebudeš
-            registrovaný<br><br>
-            <b>Číslo účtu:</b> <b class="text-orange">SK54687985235486</b>
+            <div style="background-color: #FAFAFA; padding: 20px;">
+                <p>Na číslo účtu uvedené nižšie musíš zaslať sumu uvedenú pri informáciách o vybranom kurze inak nebudeš
+                    registrovaný.</p>
+                <p>Do poznámky prosím napíš svoje meno a priezvisko aby sme tvoju platbu mohli správne zaradiť.</p>
+            </div>
+            <p style="padding: 20px; width: 100%"><b>Číslo účtu:</b> <b class="text-orange">SK54687985235486</b></p>
         </p>
         <div class="container" style="background: rgba(0, 0, 0, .05); padding: 20px;">
             <div class="container bgr-primary">
@@ -93,7 +103,7 @@
                     <b>Meno:</b> <%= user.firstName %> <%= user.lastName %> <br>
                     <b>Email:</b> <%= user.email %> <br>
                     <b>Telefónne číslo:</b> <%= phoneNum %> <br>
-                    <b>Dátum narodenia:</b> <%= user.dobDay %>.<%= user.dobMonth %>.<%= user.dobYear %> <br>
+                    <b>Dátum narodenia:</b> <%= dob %> <br>
                     <b>Adresa:</b> <%= user.address %>, <%= user.city %> <%= PSC %>, <%= user.state %> <br>
                     <b>Vybratý kurz:</b> <%= user.pickCourse %> <br>
                     <b>Poznámky:</b> <%= user.inf %> <br>
@@ -103,13 +113,17 @@
                     <b>Meno:</b> <%= user.parentFirstName %> <%= user.parentLastName %> <br>
                     <b>Email:</b> <%= user.parentEmail %> <br>
                     <b>Telefónne číslo:</b> <%= parentPhoneNum %> <br>
+                    <% if (user.parentInf != 'undefined') { %>
                     <b>Poznámky:</b> <%= user.parentInf %> <br>
+                    <% } %>
                 </p>
             </div>
 
         </div>
-        <p class="logo" style="margin-top: 50px;">Team MUVschool. <img src="cid:logo" width="30" height="30">
-        </p>
+        <div class="flex-header" style="margin-top: 50px;">
+            <p class="logo" style="margin-right: 10px;">Team MUVschool.</p>
+            <img src="cid:logo" width="30" height="30">
+        </div>
     </div>
 </body>
 

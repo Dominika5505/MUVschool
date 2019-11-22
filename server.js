@@ -1,6 +1,6 @@
-// if (process.env.NODE_ENV !== 'production') {
-//   require('dotenv').config();
-// }
+if (process.env.NODE_ENV !== 'production') {
+  require('dotenv').config();
+}
 
 const express = require("express");
 const mongoose = require("mongoose");
@@ -11,7 +11,7 @@ const flash = require("connect-flash");
 const session = require("express-session");
 const MongoStore = require('connect-mongo')(session);
 const passport = require("passport");
-require("./passport")(passport);
+require("./config/passport")(passport);
 
 const app = express();
 

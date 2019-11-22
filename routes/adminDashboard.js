@@ -1,6 +1,8 @@
 const router = require("express").Router();
 const Kurz = require("../models/Kurz");
-const { ensureAuthenticated } = require("../auth");
+const {
+  ensureAuthenticated
+} = require("../config/auth");
 
 router.get("/", ensureAuthenticated, async (req, res) => {
   // level2.forEach(inter => {
@@ -56,16 +58,13 @@ router.put("/:id", ensureAuthenticated, async (req, res) => {
       return !user.payed;
     });
 
-    await Kurz.findOneAndUpdate(
-      {
-        "users._id": req.params.id
-      },
-      {
-        $set: {
-          "users.$.payed": changePayed
-        }
+    await Kurz.findOneAndUpdate({
+      "users._id": req.params.id
+    }, {
+      $set: {
+        "users.$.payed": changePayed
       }
-    );
+    });
     res.redirect("back");
   } catch (err) {
     console.log(err);
@@ -74,21 +73,17 @@ router.put("/:id", ensureAuthenticated, async (req, res) => {
 
 router.delete("/:id", ensureAuthenticated, async (req, res) => {
   try {
-    await Kurz.findOneAndUpdate(
-      {
-        "users._id": req.params.id
-      },
-      {
-        $pull: {
-          users: {
-            _id: req.params.id
-          }
+    await Kurz.findOneAndUpdate({
+      "users._id": req.params.id
+    }, {
+      $pull: {
+        users: {
+          _id: req.params.id
         }
-      },
-      {
-        new: true
       }
-    );
+    }, {
+      new: true
+    });
     res.redirect("back");
   } catch (err) {
     console.log(err);
