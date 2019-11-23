@@ -5,7 +5,7 @@
             <div class="modal-content">
                 <div class="modal-header text-center">
                     <h4 class="modal-title w-100 font-weight-bold"><b>Registračný formulár</b> <br> Level 2
-                        (7-12 rokov) </h4>
+                        (13-16 rokov) </h4>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -34,7 +34,7 @@
             <div class="modal-content">
                 <div class="modal-header text-center">
                     <h4 class="modal-title w-100 font-weight-bold"><b>Registračný formulár</b> <br>Level 1
-                        (12-16 rokov)</h4>
+                        (7-12 rokov)</h4>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -78,17 +78,19 @@
             </div>
             <div class="modal-body">
                 <b class="text-primary">Ďakujeme <%= user.firstName %>, za poslanie prihlášky.</b><br>
-                Na tvoj e-mail <b>(<%= user.email %>)</b> a e-mail
-                tvojho zákonného zástupcu boli zaslané ďalšie inštrukcie a <span class="text-orange"><b>číslo účtu,
+                Na tvoj e-mail <b>(<%= user.email %>)</b> boli zaslané ďalšie inštrukcie a <span
+                    class="text-orange"><b>číslo účtu,
                         kde musíš poslať peniaze aby si bol záväzne prihlásený na tento kurz.</b></span>
                 Poponáhľaj sa, pretože <b>kým nezaplatíš, miesto sa počíta ako voľné a niekto ti ho môže obsadiť</b>!
                 <br>
                 <small class="text-primary">- MUVschool</small>
             </div>
             <div class="modal-footer">
+                <% if(isGmail) { %>
                 <a href="https://mail.google.com/mail/u/?authuser=<%= user.email %>" target="_blank"
                     class="btn btn-primary">Otvor
                     Mail</a>
+                <% } %>
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
             </div>
         </div>

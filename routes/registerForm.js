@@ -118,7 +118,7 @@ router.post("/", async (req, res) => {
     }
 
     if (req.body.pickCourse == "Level 1") {
-        // let calc = 2020 - req.body.dobYear;
+        let calc = 2020 - req.body.dobYear;
 
         const level1 = await Kurz.findOne({
             name: "Level 1"
@@ -132,10 +132,11 @@ router.post("/", async (req, res) => {
 
         const usersPayedCountLevel1 = usersPayedLevel1.length;
 
-        // if (calc > 12) {
-        //     errors.push({
-        //         msg: "Level 1 je do 12 rokov!"
-        //     })};
+        if (calc > 12) {
+            errors.push({
+                msg: "Level 1 je do 12 rokov!"
+            })
+        };
 
         if (usersPayedCountLevel1 > 5) {
             errors.push({
@@ -145,7 +146,7 @@ router.post("/", async (req, res) => {
     }
 
     if (req.body.pickCourse == "Level 2") {
-        // let calc = 2020 - req.body.dobYear;
+        let calc = 2020 - req.body.dobYear;
 
         const level2 = await Kurz.findOne({
             name: "Level 2"
@@ -159,13 +160,13 @@ router.post("/", async (req, res) => {
 
         const usersPayedCountLevel2 = usersPayedLevel2.length;
 
-        // if (calc <= 12) {
-        //     errors.push({
-        //         msg: "Level 2 je nad 12 rokov!"
-        //     });
-        // } else if (calc > 16) {
-        //     errors.push("Level 2 je do 16 rokov!");
-        // }
+        if (calc <= 12) {
+            errors.push({
+                msg: "Level 2 je nad 12 rokov!"
+            });
+        } else if (calc > 16) {
+            errors.push("Level 2 je do 16 rokov!");
+        }
 
         if (usersPayedCountLevel2 > 18) {
             errors.push({
@@ -295,17 +296,28 @@ router.post("/", async (req, res) => {
             }
         );
 
-        const mailList = `${req.body.email}`;
+        const mailList = `${req.body.email}, ${req.body.parentEmail}`;
 
         let mailOptions = {
             from: "MUVschool <muvschool@gmail.com>",
             to: mailList,
             subject: "MUVschool - Prihláška na kurz",
             attachments: [{
-                filename: "LOGOBlack.png",
-                path: "./public/images/LOGOBlack.png",
-                cid: "logo"
-            }],
+                    filename: "LOGOBlack.png",
+                    path: "./public/images/LOGOBlack.png",
+                    cid: "logoBlack"
+                },
+                {
+                    filename: "mailBgrImg-desat-light.jpg",
+                    path: "./public/images/mailBgrImg-desat-light.jpg",
+                    cid: "desat-light"
+                },
+                // {
+                //     filename: "mailBgrImg-darken-blured.jpg",
+                //     path: "./public/images/mailBgrImg-darken-blured.jpg",
+                //     cid: "darken-blured"
+                // }
+            ],
             html: data
         };
 
@@ -317,11 +329,16 @@ router.post("/", async (req, res) => {
             }
         });
 
+        const isGmail = (mail) => {
+            mail = mail.split('@');
+            return (mail[1] == 'gmail.com') ? true : false;
 
+        }
 
         res.render("services", {
             user: req.body,
             title: "Services",
+            isGmail: isGmail(req.body.email)
         });
     }
 });

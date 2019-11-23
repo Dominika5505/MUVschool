@@ -315,6 +315,7 @@
 }
 
 .margin-top-bottom {
+  width: 100vw;
   margin: 80px 0;
   display: grid;
   grid-template-columns: 1fr;
@@ -380,6 +381,10 @@ a.sign-in:hover {
 
 .form-header {
   margin-top: 50px;
+}
+
+.col-md-12.text-center.gtco-heading {
+  padding: 0;
 }
 
 /* ADMIN NAVBAR  ------------------------------- */
@@ -588,10 +593,6 @@ a.sign-in:hover {
 /*# sourceMappingURL=style.css.map */
 
 @media screen and (min-width: 620px) {
-  .col-md-12.text-center.gtco-heading {
-    padding: 0;
-  }
-
   .course-img-container:hover {
     background-position-x: 0;
     background-position-y: 20%;

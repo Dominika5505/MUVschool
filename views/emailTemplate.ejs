@@ -7,6 +7,10 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>MUVschool</title>
     <style>
+        body {
+            background: #000;
+        }
+
         img {
             vertical-align: middle;
         }
@@ -19,6 +23,98 @@
         p {
             margin: 0 0 10px;
         }
+
+        .container-fluid {
+            padding: 0;
+        }
+
+
+        .con {
+            width: 100%;
+            background: url('cid:desat-light') no-repeat;
+            background-size: cover;
+            z-index: 2;
+            background-color: #337ab7;
+        }
+
+        /* .header {
+        } */
+
+        .header .header-logo {
+            padding: 200px 0;
+            display: block;
+            text-align: center;
+        }
+
+        .header .header-logo img {
+            margin: 0 auto;
+        }
+
+        .main-section {
+            padding: 100px;
+            background: rgba(0, 0, 0, .8);
+            text-align: center;
+            color: #fff;
+        }
+
+        .main-section p {
+            font-size: 1.5em;
+        }
+
+        .inf-section {
+            background: rgba(255, 255, 255, .5);
+            position: relative;
+        }
+
+        .inf {
+            width: 100%;
+            padding: 50px;
+        }
+
+        .inf-2 {
+            padding-top: 0;
+        }
+
+        .inf-section::before {
+            position: absolute;
+            top: 55%;
+            height: 5px;
+            left: 50px;
+            right: 5px;
+            width: 93%;
+            content: '';
+            background: rgba(0, 0, 0, .8);
+            z-index: 20;
+
+        }
+
+        .payment-section {
+            background: rgba(0, 0, 0, .8);
+            padding: 100px;
+            color: #fff;
+            text-align: center;
+        }
+
+        .footer-section {
+            text-align: center;
+            padding: 20px;
+            color: rgb(48, 48, 48);
+        }
+
+        .footer-section img {
+            margin-right: 10px;
+        }
+
+        .footer-section p {
+            margin: 0;
+            padding: 0;
+        }
+
+
+
+
+
+
 
         .container {
             margin-right: auto;
@@ -43,6 +139,10 @@
 
         .text-orange {
             color: #F85A16
+        }
+
+        .text-black {
+            color: #000;
         }
 
         .btn {
@@ -73,56 +173,92 @@
             border: 2px solid #F85A16 !important;
         }
 
-        .flex-header {
-            display: flex;
-            align-items: center;
+
+        @media only screen and (max-width: 1100px) {
+
+            .main-section,
+            .payment-section {
+                padding: 100px 50px;
+            }
+
+            .inf-section {
+                flex-direction: column;
+            }
+
+            .inf {
+                width: 100%;
+            }
+
+            .inf:nth-of-type(1) {
+                padding-bottom: 20px;
+            }
+
+            .inf-section::before {
+                position: absolute;
+                top: 55%;
+                height: 5px;
+                left: 23px;
+                right: 5px;
+                width: 93%;
+                content: '';
+            }
+        }
+
+        @media only screen and (max-width: 600px) {
+            .con {
+                width: 100%;
+                margin: 0;
+            }
         }
     </style>
 </head>
 
 <body>
-    <div class="container" style="width: 80%;">
-        <div class="flex-header">
-            <img src="cid:logo" width="40" height="40" style="margin: 20px 20px 0 0;">
-            <p class="logo" style="font-size: 2em;">MUVschool</p>
-        </div>
-        <p> <b class="text-primary">
-                Ďakujeme <%= user.firstName %>, tvoja prihláška bola zaznamenaná.</b><br><br>
-            <div style="background-color: #FAFAFA; padding: 20px;">
-                <p>Na číslo účtu uvedené nižšie musíš zaslať sumu uvedenú pri informáciách o vybranom kurze inak nebudeš
-                    registrovaný.</p>
-                <p>Do poznámky prosím napíš svoje meno a priezvisko aby sme tvoju platbu mohli správne zaradiť.</p>
-            </div>
-            <p style="padding: 20px; width: 100%"><b>Číslo účtu:</b> <b class="text-orange">SK54687985235486</b></p>
-        </p>
-        <div class="container" style="background: rgba(0, 0, 0, .05); padding: 20px;">
-            <div class="container bgr-primary">
 
-                <b class="text-primary">Tvoje informácie:</b><br>
-                <p>
-                    <b>Meno:</b> <%= user.firstName %> <%= user.lastName %> <br>
-                    <b>Email:</b> <%= user.email %> <br>
-                    <b>Telefónne číslo:</b> <%= phoneNum %> <br>
-                    <b>Dátum narodenia:</b> <%= dob %> <br>
-                    <b>Adresa:</b> <%= user.address %>, <%= user.city %> <%= PSC %>, <%= user.state %> <br>
-                    <b>Vybratý kurz:</b> <%= user.pickCourse %> <br>
-                    <b>Poznámky:</b> <%= user.inf %> <br>
-                </p>
-                <b class="text-primary">Informácie o zákonnom zástupcovi:</b><br>
-                <p>
-                    <b>Meno:</b> <%= user.parentFirstName %> <%= user.parentLastName %> <br>
-                    <b>Email:</b> <%= user.parentEmail %> <br>
-                    <b>Telefónne číslo:</b> <%= parentPhoneNum %> <br>
-                    <% if (user.parentInf != 'undefined') { %>
-                    <b>Poznámky:</b> <%= user.parentInf %> <br>
-                    <% } %>
-                </p>
+    <div class="con">
+        <div class="header">
+            <div class="header-logo">
+                <!-- <img src="/images/LOGOBlack.png" width="150" height="150"> -->
+                <img src="cid:logoBlack" width="150" height="150">
             </div>
-
         </div>
-        <div class="flex-header" style="margin-top: 50px;">
-            <p class="logo" style="margin-right: 10px;">Team MUVschool.</p>
-            <img src="cid:logo" width="30" height="30">
+        <div class="container-fluid main-section">
+            <div class="overlay"></div>
+            <h1 class="text-orange">Ďakujeme za registráciu na náš kurz!</h1>
+            <p>Na číslo účtu uvedené nižšie musíš zaslať sumu uvedenú pri informáciách o vybranom kurze inak nebudeš
+                registrovaný a tvoje miesto bude považované za voľné.</p>
+        </div>
+        <div class="container-fluid inf-section">
+            <div class="inf">
+                <h3 class="text-primary"><b>Tvoje údaje:</b></h3>
+                <p><b class="text-black">Meno:</b> <%= user.firstName %> <%= user.lastName %></p>
+                <p><b class="text-black">E-mail:</b> <%= user.email %></p>
+                <% if (typeof phoneNum != 'undefined') { %><p><b class="text-black">Telefónne číslo:</b>
+                    <%= phoneNum %></p><% } %>
+                <p><b class="text-black">Dátum narodenia:</b> <%= dob %></p>
+                <p><b class="text-black">Adresa:</b> <%= user.address %>, <%= user.city %> <%= PSC %>,
+                    <%= user.city %></p>
+                <% if(typeof user.inf != 'undefined') { %><p><b class="text-black">Informácie:</b> <%= user.inf %>
+                </p><% } %>
+            </div>
+            <div class="inf-2 inf">
+                <h3 class="text-primary"><b>Údaje zákonného zástupcu:</b></h3>
+                <p><b class="text-black">Meno:</b> <%= user.parentFirstName %> <%= user.parentLastName %></p>
+                <p><b class="text-black">E-mail:</b> <%= user.parentEmail %></p>
+                <% if(typeof parentPhoneNum != 'undefined') { %><p><b class="text-black">Telefónne číslo:</b>
+                    <%= parentPhoneNum %></p><% } %>
+                <% if(typeof user.parentInf != 'undefined') { %><p><b class="text-black">Informácie:</b>
+                    <%= user.parentInf %></p><% } %>
+            </div>
+        </div>
+        <div class="container-fluid payment-section">
+            <p>Číslo účtu: <span class="text-orange">SK008898688865</span></p>
+            <p>Do poznámky prosím napíš svoje meno a priezvisko aby sme tvoju platbu mohli správne zaradiť.</p>
+            <p>Po zaplatení ti bude zaslaný e-mail s potvrdením</p>
+        </div>
+        <div class="container-fluid footer-section">
+            <!-- <p><img src="/images/LOGOBlack.png" width="40" height="40"> MUVschool Team</p> -->
+            <p><img src="cid:logoBlack" width="40" height="40"> MUVschool Team</p>
         </div>
     </div>
 </body>
