@@ -1,0 +1,91 @@
+<!DOCTYPE html
+    PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+</head>
+
+<body style="margin: 0; padding: 0; font-family: 'Raleway', sans-serif;">
+    <table cellpadding="0" cellspacing="0" width="100%">
+        <tr>
+            <td style="margin-top: 20px; margin-bottom: 20px" bgcolor="#fdfdfd">
+                <table align="center" border="0" cellspacing="0" cellpadding="10" style="border-collapse: collapse;"
+                    width="100%">
+                    <tr>
+                        <td style="padding-top: 20px; padding-right: 0; padding-left: 20px; padding-bottom: 20px;">
+                            <img style="display: block;" src="cid:logo" width="40" height="40"></td>
+                    </tr>
+                    <tr>
+                        <td
+                            style="padding-top: 20px; padding-right: 0; padding-left: 20px; padding-bottom: 20px; border-top: 1px solid #eeeeee;">
+                            <p style="color: #337ab7;"><b>Ďakujeme <%#= user.firstName %>,
+                                    tvoja
+                                    prihláška bola
+                                    zaznamenaná.</b></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td bgcolor="#f9f9f9"
+                            style="padding-top: 20px; padding-right: 0; padding-left: 20px; padding-bottom: 20px;">
+                            <p style="margin-bottom: 10px;"><b>Na číslo účtu uvedené nižšie musíš zaslať
+                                    sumu uvedenú
+                                    pri informáciách o vybranom
+                                    kurze inak nebudeš registrovaný.</b></p>
+                            <p style="margin-bottom: 10px;">Do poznámky prosím napíš svoje meno a priezvisko
+                                aby sme
+                                tvoju platbu mohli správne
+                                zaradiť.</p>
+                            <p>Po zaslaní peňazí ti príde potvredenie registrácie.
+                            </p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="padding-top: 20px; padding-right: 0; padding-left: 20px; padding-bottom: 20px;">
+                            <p><b>Číslo účtu:</b> <b style="color: #F85A16">SK54687985235486</b></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td bgcolor="#f8f8f8"
+                            style="padding-top: 20px; padding-right: 0; padding-left: 20px; padding-bottom: 20px;">
+                            <h4 style="color: #337ab7;"><b>Tvoje informácie:</b></h4>
+                            <p style="margin-bottom: 10px;"><b>Meno:</b> <%#= user.firstName %>
+                                <%#= user.lastName %>
+                            </p>
+                            <p style="margin-bottom: 10px;"><b>Email:</b> <%#= user.email %></p>
+                            <p style="margin-bottom: 10px;"><b>Telefónne číslo:</b> <%#= phoneNum %></p>
+                            <p style="margin-bottom: 10px;"><b>Dátum narodenia:</b> <%#= dob %></p>
+                            <p style="margin-bottom: 10px;"><b>Adresa:</b> <%#= user.address %>,
+                                <%#= user.city %>
+                                <%#= PSC %>, <%#= user.state %>
+                            </p>
+                            <p style="margin-bottom: 10px;"><b>Vybratý kurz:</b> <%#= user.pickCourse %></p>
+                            <p style="margin-bottom: 40px;"><b>Poznámky:</b> <%#= user.inf %></p>
+
+
+                            <h4 style="color: #337ab7;"><b>Informácie o zákonnom zástupcovi:</b></h4>
+
+                            <p style="margin-bottom: 10px;"><b>Meno:</b> <%#= user.parentFirstName %>
+                                <%#= user.parentLastName %></p>
+                            <p style="margin-bottom: 10px;"><b>Email:</b> <%#= user.parentEmail %></p>
+                            <p style="margin-bottom: 10px;"><b>Telefónne číslo:</b> <%#= parentPhoneNum %>
+                            </p>
+                            <p style="margin-bottom: 10px;"><b>Poznámky:</b> <%#= user.parentInf %></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="padding-top: 20px; padding-right: 0; padding-left: 20px; padding-bottom: 20px;">
+                            <p class="logo" style="margin-bottom: 0;"><img
+                                    style="margin-right: 20px; vertical-align: middle;" src="cid:logo" width="30"
+                                    height="30"> Team MUVschool.</p>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+
+    </table>
+</body>
+
+</html>

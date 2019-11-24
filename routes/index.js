@@ -32,8 +32,16 @@ router.get('/register', (req, res) => {
 
 
 router.get('/emailUser', (req, res) => {
-    res.render('emailTemplate', {
-        title: 'Email User'
+    res.render('emailConfirm', {
+        title: 'Email User',
+        layout: 'emailLayout'
+    })
+})
+
+router.get('/emailPayed', (req, res) => {
+    res.render('emailPayed', {
+        title: 'Email User',
+        layout: 'emailLayout'
     })
 })
 

@@ -3,6 +3,8 @@ const Kurz = require("../models/Kurz");
 const {
   ensureAuthenticated
 } = require("../config/auth");
+const transporter = require('../config/nodemailerAuth');
+const ejs = require('ejs');
 
 router.get("/", ensureAuthenticated, async (req, res) => {
   // level2.forEach(inter => {
@@ -51,12 +53,14 @@ router.get("/level2", ensureAuthenticated, async (req, res) => {
 
 router.put("/:id", ensureAuthenticated, async (req, res) => {
   try {
-    const changePayed = await Kurz.findOne({
+    const user = await Kurz.findOne({
       "users._id": req.params.id
     }).then(result => {
       const user = result.users.find(user => user._id == req.params.id);
-      return !user.payed;
+      return user;
     });
+
+    const changePayed = !user.payed;
 
     await Kurz.findOneAndUpdate({
       "users._id": req.params.id
@@ -65,6 +69,32 @@ router.put("/:id", ensureAuthenticated, async (req, res) => {
         "users.$.payed": changePayed
       }
     });
+    const data = await ejs.renderFile(
+      process.cwd() + "/views/emailPayed.ejs");
+
+    const mailList = `${user.email}, ${user.parent.parentEmail}`;
+
+    let mailOptions = {
+      from: "MUVschool <muvschool@gmail.com>",
+      to: mailList,
+      subject: "Potvrdenie registrácie",
+      attachments: [{
+        filename: "LOGOBlack.png",
+        path: "./public/images/LOGOBlack.png",
+        cid: "logo"
+      }],
+      html: data
+    };
+
+    if (changePayed) {
+      transporter.sendMail(mailOptions, (err, data) => {
+        if (err) {
+          console.log("Error Occurs: ", err);
+        } else {
+          console.log("Email sent!!!");
+        }
+      });
+    }
     res.redirect("back");
   } catch (err) {
     console.log(err);
