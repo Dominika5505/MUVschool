@@ -1,5 +1,0 @@
-mongo "mongodb://bd0e3aabe8903f78a6a313f6f8283fc0:PASS5505word@9a.mongo.evennode.com:27017,9b.mongo.evennode.com:27017/bd0e3aabe8903f78a6a313f6f8283fc0?replicaSet=eu-9"
-
-
-
-mongodb+srv://Dominika:POx07tOrBACUICnF@muvschool-sp94k.mongodb.net/MUVschool?retryWrites=true&w=majority
