@@ -78,11 +78,13 @@ app.use((req, res, next) => {
 // Method Override
 app.use(methodOverride("_method"));
 
-console.log(typeof process.env.DATABASE_URI);
+// console.log(typeof process.env.DATABASE_URI);
 
 // Routers
 app.use("/", require("./routes/index"));
-app.use("/services", require("./routes/registerForm"));
+app.use("/services", require("./routes/services"));
+app.use("/contact", require("./routes/contact"));
+app.use("/subscribe", require("./routes/subscribe"));
 app.use("/admin", require("./routes/admin"));
 app.use("/admin/dashboard", require("./routes/adminDashboard"));
 

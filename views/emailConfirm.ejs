@@ -20,7 +20,7 @@
                     <tr>
                         <td
                             style="padding-top: 20px; padding-right: 0; padding-left: 20px; padding-bottom: 20px; border-top: 1px solid #eeeeee;">
-                            <p style="color: #337ab7;"><b>Ďakujeme <%#= user.firstName %>,
+                            <p style="color: #337ab7;"><b>Ďakujeme <%= user.firstName %>,
                                     tvoja
                                     prihláška bola
                                     zaznamenaná.</b></p>
@@ -50,28 +50,27 @@
                         <td bgcolor="#f8f8f8"
                             style="padding-top: 20px; padding-right: 0; padding-left: 20px; padding-bottom: 20px;">
                             <h4 style="color: #337ab7;"><b>Tvoje informácie:</b></h4>
-                            <p style="margin-bottom: 10px;"><b>Meno:</b> <%#= user.firstName %>
-                                <%#= user.lastName %>
+                            <p style="margin-bottom: 10px;"><b>Meno:</b> <%= user.firstName %>
+                                <%= user.lastName %>
                             </p>
-                            <p style="margin-bottom: 10px;"><b>Email:</b> <%#= user.email %></p>
-                            <p style="margin-bottom: 10px;"><b>Telefónne číslo:</b> <%#= phoneNum %></p>
-                            <p style="margin-bottom: 10px;"><b>Dátum narodenia:</b> <%#= dob %></p>
-                            <p style="margin-bottom: 10px;"><b>Adresa:</b> <%#= user.address %>,
-                                <%#= user.city %>
-                                <%#= PSC %>, <%#= user.state %>
+                            <p style="margin-bottom: 10px;"><b>Email:</b> <%= user.email %></p>
+                            <p style="margin-bottom: 10px;"><b>Telefónne číslo:</b> <%= phoneNum %></p>
+                            <p style="margin-bottom: 10px;"><b>Dátum narodenia:</b> <%= dob %></p>
+                            <p style="margin-bottom: 10px;"><b>Adresa:</b> <%= user.address %>,
+                                <%= user.city %>
+                                <%= PSC %>, <%= user.state %>
                             </p>
-                            <p style="margin-bottom: 10px;"><b>Vybratý kurz:</b> <%#= user.pickCourse %></p>
-                            <p style="margin-bottom: 40px;"><b>Poznámky:</b> <%#= user.inf %></p>
+                            <p style="margin-bottom: 40px;"><b>Poznámky:</b> <%= user.inf %></p>
 
 
                             <h4 style="color: #337ab7;"><b>Informácie o zákonnom zástupcovi:</b></h4>
 
-                            <p style="margin-bottom: 10px;"><b>Meno:</b> <%#= user.parentFirstName %>
-                                <%#= user.parentLastName %></p>
-                            <p style="margin-bottom: 10px;"><b>Email:</b> <%#= user.parentEmail %></p>
-                            <p style="margin-bottom: 10px;"><b>Telefónne číslo:</b> <%#= parentPhoneNum %>
+                            <p style="margin-bottom: 10px;"><b>Meno:</b> <%= user.parentFirstName %>
+                                <%= user.parentLastName %></p>
+                            <p style="margin-bottom: 10px;"><b>Email:</b> <%= user.parentEmail %></p>
+                            <p style="margin-bottom: 10px;"><b>Telefónne číslo:</b> <%= parentPhoneNum %>
                             </p>
-                            <p style="margin-bottom: 10px;"><b>Poznámky:</b> <%#= user.parentInf %></p>
+                            <p style="margin-bottom: 10px;"><b>Poznámky:</b> <%= user.parentInf %></p>
                         </td>
                     </tr>
                     <tr>

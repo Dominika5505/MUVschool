@@ -1,0 +1,43 @@
+<div id="gtco-subscribe">
+    <div class="gtco-container">
+        <div id="signup">
+            <div class="row animate-box">
+                <div class="col-md-8 col-md-offset-2 text-center gtco-heading">
+                    <h2> Newsletter </h2>
+                    <p> Si len kúsok od toho, aby ti nič z pozadia MUVschool neuniklo. </p>
+                    <div id="error" class="bg-danger">
+                        <p>Error occured</p>
+                    </div>
+
+                </div>
+            </div>
+            <div class="row animate-box">
+                <div class="col-md-12">
+                    <form class="form-inline" id="subscribe-form" action="/subscribe" method="POST">
+                        <div class="col-md-4 col-sm-4">
+                            <div class="form-group">
+                                <label for="subscribeEmail" class="sr-only">Email</label>
+                                <input type="email" class="form-control" id="subscribeEmail" placeholder="Váš email"
+                                    name="email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-sm-4">
+                            <div class="form-group">
+                                <label for="subscribeName" class="sr-only">Name</label>
+                                <input type="text" class="form-control" id="subscribeName" placeholder="Vaše meno"
+                                    name="name" required pattern="^(?:[A-zÀ-ú]+)(?:[A-Za-z\u0100-\u017F áéíýóúô]*)$">
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-sm-4">
+                            <button type="submit" class="btn btn-default btn-block" id="subscribe-submit"> Odoslať
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div id="success">
+            <p>Ďakujeme, si prihlásený na odber noviniek!</p>
+        </div>
+    </div>
+</div>

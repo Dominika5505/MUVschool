@@ -251,29 +251,7 @@
 
 	};
 
-	var smoothScroll = function (event) {
-		$('.register-button').on('click', function (event) {
 
-			event.preventDefault();
-
-			$('html, body').animate({
-				scrollTop: $('#gtco-subscribe').offset().top
-			}, 500, 'easeInOutExpo');
-
-			return false;
-		});
-
-		// $(window).scroll(function () {
-
-		// 	var $win = $(window);
-		// 	if ($win.scrollTop() > 200) {
-		// 		$('.register-button').addClass('active');
-		// 	} else {
-		// 		$('.register-button').removeClass('active');
-		// 	}
-
-		// });
-	}
 
 
 	// Loading page
@@ -315,7 +293,6 @@
 		goToTop();
 		loaderPage();
 		counterWayPoint();
-		smoothScroll()
 	});
 
 

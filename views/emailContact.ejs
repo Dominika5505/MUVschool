@@ -1,0 +1,46 @@
+<!DOCTYPE html
+    PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+</head>
+
+<body style="margin: 0; padding: 0; font-family: 'Raleway', sans-serif;">
+    <table cellpadding="0" cellspacing="0" width="100%">
+        <tr>
+            <td style="margin-top: 20px; margin-bottom: 20px" bgcolor="#fdfdfd">
+                <table align="center" border="0" cellspacing="0" cellpadding="10" style="border-collapse: collapse;"
+                    width="100%">
+                    <tr>
+                        <td style="padding-top: 20px; padding-right: 0; padding-left: 20px; padding-bottom: 20px;">
+                            <img style="display: block;" src="cid:logo" width="40" height="40"></td>
+                    </tr>
+                    <tr>
+                        <td bgcolor="#fdfdfd"
+                            style="padding-top: 20px; padding-right: 0; padding-left: 20px; padding-bottom: 20px;">
+                            <h4 style="color: #337ab7;"><b>Informácie odosielateľa:</b></h4>
+                            <p style="margin-bottom: 10px;"><b>Meno:</b> <%= user.contactFirstName %>
+                                <%= user.contactLastName %>
+                            </p>
+                            <p style="margin-bottom: 10px;"><b>Email:</b> <%= user.contactEmail %></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td bgcolor="#f8f8f8">
+                            <p style="margin-bottom: 10px;"><b>Správa:</b> <%= user.message %></p>
+                            <!-- <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Facere fugit nam doloribus.
+                                    Odio perferendis ea recusandae a at sed esse sit distinctio, aliquam repellat est
+                                    excepturi optio! Quaerat, eum fuga.</p> -->
+
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+
+    </table>
+</body>
+
+</html>

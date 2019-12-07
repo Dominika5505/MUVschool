@@ -1,5 +1,6 @@
 const router = require("express").Router();
 const Kurz = require("../models/Kurz");
+const Subscriber = require("../models/Subscriber");
 const {
     userValidation
 } = require("../validation");
@@ -7,6 +8,36 @@ const fs = require("fs");
 const ejs = require("ejs");
 const nodemailer = require("nodemailer");
 const transporter = require('../config/nodemailerAuth');
+
+router.get('/', async (req, res) => {
+    const level1 = await Kurz.findOne({
+        name: "Level 1"
+    }).then(result => {
+        const users = result.users;
+        const payed = users.filter(user => {
+            return user.payed == true
+        });
+        return 32 - (payed.length);
+    });
+
+    // const level2 = await Kurz.findOne({
+    //     name: "Level 2"
+    // }).then(result => {
+    //     const users = result.users;
+    //     const payed = users.filter(user => {
+    //         return user.payed == true
+    //     });
+    //     return 16 - (payed.length);
+    // });
+
+    console.log(level1);
+
+    res.render('services', {
+        title: 'Tréningy',
+        level1Count: level1,
+        // level2Count: level2,
+    });
+});
 
 router.post("/", async (req, res) => {
     let errors = [];
@@ -134,63 +165,60 @@ router.post("/", async (req, res) => {
         }
     }
 
-    if (req.body.pickCourse == "Level 1") {
-        let calc = 2020 - req.body.dobYear;
-
-        const level1 = await Kurz.findOne({
-            name: "Level 1"
-        }).then(result => {
-            return result.users;
+    const level1 = await Kurz.findOne({
+        name: "Level 1"
+    }).then(result => {
+        const payed = result.users.filter(user => {
+            return user.payed == true
         });
+        return payed.length
+    });
 
-        const usersPayedLevel1 = level1.filter(user => {
-            return user.payed == true;
+    const level1Count = 32 - level1;
+
+    // const usersPayedLevel1 = level1.filter(user => {
+    //     return user.payed == true;
+    // });
+
+    // const usersPayedCountLevel1 = usersPayedLevel1.length;
+
+    if (level1 >= 32) {
+        errors.push({
+            msg: "Kurz je už plný!"
         });
-
-        const usersPayedCountLevel1 = usersPayedLevel1.length;
-
-        if (calc > 12) {
-            errors.push({
-                msg: "Level 1 je do 12 rokov!"
-            });
-        }
-
-        if (usersPayedCountLevel1 > 5) {
-            errors.push({
-                msg: "Kurz je už plný!"
-            });
-        }
     }
 
-    if (req.body.pickCourse == "Level 2") {
-        let calc = 2020 - req.body.dobYear;
+    console.log(level1);
 
-        const level2 = await Kurz.findOne({
-            name: "Level 2"
-        }).then(result => {
-            return result.users;
-        });
+    // if (req.body.pickCourse == "Level 2") {
+    //     let calc = 2020 - req.body.dobYear;
 
-        const usersPayedLevel2 = level2.filter(user => {
-            return user.payed == true;
-        });
+    //     const level2 = await Kurz.findOne({
+    //         name: "Level 2"
+    //     }).then(result => {
+    //         return result.users;
+    //     });
 
-        const usersPayedCountLevel2 = usersPayedLevel2.length;
+    //     const usersPayedLevel2 = level2.filter(user => {
+    //         return user.payed == true;
+    //     });
 
-        if (calc <= 12) {
-            errors.push({
-                msg: "Level 2 je nad 12 rokov!"
-            });
-        } else if (calc > 16) {
-            errors.push("Level 2 je do 16 rokov!");
-        }
+    //     const usersPayedCountLevel2 = usersPayedLevel2.length;
 
-        if (usersPayedCountLevel2 > 18) {
-            errors.push({
-                msg: "Kurz je už plný!"
-            });
-        }
-    }
+    //     if (calc <= 12) {
+    //         errors.push({
+    //             msg: "Level 2 je nad 12 rokov!"
+    //         });
+    //     } else if (calc > 16) {
+    //         errors.push("Level 2 je do 16 rokov!");
+    //     }
+
+    //     if (usersPayedCountLevel2 > 18) {
+    //         errors.push({
+    //             msg: "Kurz je už plný!"
+    //         });
+    //     }
+    // }
 
     if (errors.length > 0 && req.body.pickCourse == "Level 1") {
         console.log(errors);
@@ -212,31 +240,34 @@ router.post("/", async (req, res) => {
             parentEmail: req.body.parentEmail,
             parentPhoneNum: req.body.parentPhoneNum,
             parentInf: req.body.parentInf,
-            pickCourse: req.body.pickCourse
+            pickCourse: req.body.pickCourse,
+            level1Count
         });
-    } else if (errors.length > 0 && req.body.pickCourse == "Level 2") {
-        console.log(errors);
-        res.render("services", {
-            level2: errors,
-            title: "Tréningy",
-            firstName: req.body.firstName,
-            lastName: req.body.lastName,
-            dob: req.body.dob,
-            email: req.body.email,
-            phoneNum: req.body.phoneNum,
-            address: req.body.address,
-            city: req.body.city,
-            PSC: req.body.PSC,
-            state: req.body.state,
-            inf: req.body.inf,
-            parentFirstName: req.body.parentFirstName,
-            parentLastName: req.body.parentLastName,
-            parentEmail: req.body.parentEmail,
-            parentPhoneNum: req.body.parentPhoneNum,
-            parentInf: req.body.parentInf,
-            pickCourse: req.body.pickCourse
-        });
-    } else {
+    }
+    // else if (errors.length > 0 && req.body.pickCourse == "Level 2") {
+    //     console.log(errors);
+    //     res.render("services", {
+    //         level2: errors,
+    //         title: "Tréningy",
+    //         firstName: req.body.firstName,
+    //         lastName: req.body.lastName,
+    //         dob: req.body.dob,
+    //         email: req.body.email,
+    //         phoneNum: req.body.phoneNum,
+    //         address: req.body.address,
+    //         city: req.body.city,
+    //         PSC: req.body.PSC,
+    //         state: req.body.state,
+    //         inf: req.body.inf,
+    //         parentFirstName: req.body.parentFirstName,
+    //         parentLastName: req.body.parentLastName,
+    //         parentEmail: req.body.parentEmail,
+    //         parentPhoneNum: req.body.parentPhoneNum,
+    //         parentInf: req.body.parentInf,
+    //         pickCourse: req.body.pickCourse
+    //     });
+    // } 
+    else {
         const kurz = await Kurz.findOne({
                 name: req.body.pickCourse
             })
@@ -303,6 +334,12 @@ router.post("/", async (req, res) => {
         console.log(req.body.pickCourse === kurz.name);
         console.log(kurz.users);
 
+        const newSubscriber = new Subscriber({
+            name: `${req.body.firstName} ${req.body.lastName}`,
+            email: req.body.email
+        });
+        await newSubscriber.save();
+
         const data = await ejs.renderFile(
             process.cwd() + "/views/emailConfirm.ejs", {
                 user: req.body,
@@ -343,7 +380,8 @@ router.post("/", async (req, res) => {
         res.render("services", {
             user: req.body,
             title: "Services",
-            isGmail: isGmail(req.body.email)
+            isGmail: isGmail(req.body.email),
+            level1Count: level1Count
         });
     }
 });

@@ -1,26 +1,18 @@
 const router = require('express').Router();
+const {
+    subscriberValidation
+} = require('../validation');
+const Subscriber = require('../models/Subscriber');
 
 router.get('/', (req, res) => {
     res.render('index', {
-        title: '• MUVschool •'
+        title: '• MUVschool •',
     })
 });
 
 router.get('/about', (req, res) => {
     res.render('about', {
         title: 'O Nás'
-    })
-});
-
-router.get('/services', (req, res) => {
-    res.render('services', {
-        title: 'Tréningy'
-    })
-});
-
-router.get('/contact', (req, res) => {
-    res.render('contact', {
-        title: 'Kontakt'
     })
 });
 
@@ -44,6 +36,20 @@ router.get('/emailPayed', (req, res) => {
         layout: 'emailLayout'
     })
 })
+
+router.get('/info', (req, res) => {
+    res.render('info', {
+        title: 'Info'
+    })
+})
+
+router.get('/message', (req, res) => {
+    res.render('emailMessage', {
+        title: 'subscriber message',
+        layout: 'emailLayout'
+    })
+})
+
 
 
 

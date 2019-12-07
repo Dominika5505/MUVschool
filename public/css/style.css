@@ -129,7 +129,9 @@ figure {
 }
 
 #gtco-logo img {
-  width: 70px;
+  max-width: 50%;
+  min-width: 40px;
+  /* width: 70px; */
 }
 
 .gtco-nav a {
@@ -760,6 +762,10 @@ form label {
   display: table;
   text-align: center;
 }
+
+
+
+
 
 @media screen and (max-width: 768px) {
   .feature-left .icon {

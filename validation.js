@@ -27,10 +27,29 @@ const userValidation = data => {
     return schema.validate(data);
 }
 
+const contactValidation = data => {
+    const schema = Joi.object().keys({
+        contactFirstName: Joi.string().regex(/^(?:[A-zÀ-ú]+)(?:[A-Za-z\u0100-\u017Fáéíýóúô]*)$/).min(2).max(50).required(),
+        contactLastName: Joi.string().regex(/^(?:[A-zÀ-ú]+)(?:[A-Za-z\u0100-\u017Fáéíýóúô]*)$/).min(2).max(50).required(),
+        contactEmail: Joi.string().min(6).required().email(),
+        contactSubject: Joi.string().regex(/^(?:[A-zÀ-ú]+)(?:[A-Za-z0-9\u0100-\u017F .,:?!áéíýóúô]*)$/).required(),
+        message: Joi.string().regex(/^(?:[A-zÀ-ú]+)(?:[A-Za-z0-9\u0100-\u017F .,:?!áéíýóúô]*)$/).required(),
+    });
+    return schema.validate(data);
+}
+
 const adminValidation = data => {
     const schema = Joi.object().keys({
         email: Joi.string().min(6).required().email(),
         password: Joi.string().min(6).required()
+    });
+    return schema.validate(data);
+}
+
+const subscriberValidation = data => {
+    const schema = Joi.object().keys({
+        email: Joi.string().min(6).required().email(),
+        name: Joi.string().regex(/^(?:[A-zÀ-ú]+)(?:[A-Za-z\u0100-\u017F áéíýóúô]*)$/).min(2).max(50).required(),
     });
     return schema.validate(data);
 }
@@ -45,4 +64,6 @@ const adminValidation = data => {
 
 module.exports.userValidation = userValidation;
 module.exports.adminValidation = adminValidation;
+module.exports.subscriberValidation = subscriberValidation;
+module.exports.contactValidation = contactValidation;
 // module.exports.loginValidation = loginValidation;
